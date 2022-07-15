@@ -9,9 +9,5 @@
   
   <%= link_to "新規メッセージの投稿", new_task_path %>
   
-  <ul>
-    <li><a href="/users/new">Signup</a></li>
-    <li><a href="/sessions/new">Login</a></li>
-    <li><a href="/sessions/destroy">Logout</a></li>
-  </ul>
+  <%= link_to 'Logout', logout_path, method: :delete %>
 <% end %>
