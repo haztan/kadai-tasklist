@@ -1,8 +1,18 @@
-<h1>タスク一覧</h1>
-<ul>
-  <% @tasks.each do |task| %>
-    <li><%= link_to task.id, task %> : <%= task.status %> &gt; <%= task.content %></li>
-  <% end %>
-</ul>
-
-<%= link_to "新規メッセージの投稿", new_task_path %>
+<% if logged_in? %>
+  <p>ログイン完了ユーザ: <%= current_user.name %></p>
+<% else %>
+  <h1>タスク一覧</h1>
+  <ul>
+    <% @tasks.each do |task| %>
+      <li><%= link_to task.id, task %> : <%= task.status %> &gt; <%= task.content %></li>
+    <% end %>
+  </ul>
+  
+  <%= link_to "新規メッセージの投稿", new_task_path %>
+  
+  <ul>
+    <li><a href="/users/new">Signup</a></li>
+    <li><a href="/sessions/new">Login</a></li>
+    <li><a href="/sessions/destroy">Logout</a></li>
+  </ul>
+<% end %>
